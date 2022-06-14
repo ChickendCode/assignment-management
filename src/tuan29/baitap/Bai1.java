@@ -1,22 +1,19 @@
 package tuan29.baitap;
 
-import java.util.Scanner;
-
 public class Bai1 {
-    private static Scanner scanner = new Scanner(System.in);
-
-    public static void main(String[] args) {
-        System.out.print("Nhập n = ");
-        int n = scanner.nextInt();
-        System.out.printf("Tất cả các số nguyên tố nh�? hơn %d là: \n", n);
-        if (n >= 2) {
-            System.out.print(2);
+    public static String getKetQua(int n) {
+    	String ketQua = "Tất cả các số nguyên tố nhỏ hơn " + n + " là: \n";
+    	
+    	if (n >= 2) {
+    		ketQua += 2 + " ";
         }
         for (int i = 1; i < n; i += 1) {
             if (isPrimeNumber(i)) {
-                System.out.print(" " + i);
+            	ketQua += i + " ";
             }
         }
+        
+		return ketQua;
     }
 
     public static boolean isPrimeNumber(int n) {

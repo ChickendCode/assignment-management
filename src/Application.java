@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import tuan29.baitap.Bai1;
 import tuan29.baitap.Bai2;
 import tuan29.baitap.Bai3;
 import tuan29.baitap.Bai4;
@@ -110,7 +111,7 @@ public class Application extends JFrame {
 		btnBai1_T29.setSize(91, 50);
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtKetQua.setText(Bai1.getKetQua(70));
 			}
 		});
 		

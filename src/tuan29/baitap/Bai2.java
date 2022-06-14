@@ -2,7 +2,6 @@ package tuan29.baitap;
 
 public class Bai2 {
     public static String getKetQua() {
-    	int n, count = 0;
         int status = 1;
         int num = 3;
         String ketQua = "20 số nguyên tố đầu tiên là: \n";
@@ -17,7 +16,6 @@ public class Bai2 {
             if (status != 0) {
                 ketQua += num + "\n";
                 i++;
-                count++;
             }
             status = 1;
             num++;
