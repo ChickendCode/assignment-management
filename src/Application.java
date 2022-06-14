@@ -1,18 +1,22 @@
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Window;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridLayout;
-import javax.swing.JButton;
-import javax.swing.JLabel;
+
+import tuan29.LayoutTuan29;
 
 public class Application extends JFrame {
-
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4737499706082370608L;
 	private JPanel contentPane;
 
 	/**
@@ -51,28 +55,31 @@ public class Application extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnTuan29 = new JButton("Tu\u1EA7n 29");
-		btnTuan29.setBounds(54, 124, 89, 45);
-		contentPane.add(btnTuan29);
-		
-		JButton btnTuan30 = new JButton("Tu\u1EA7n 30");
-		btnTuan30.setBounds(54, 192, 89, 45);
-		contentPane.add(btnTuan30);
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setForeground(Color.LIGHT_GRAY);
+		panel.setBounds(10, 11, 165, 639);
+		contentPane.add(panel);
 		
 		JButton btnTuan31 = new JButton("Tu\u1EA7n 31");
-		btnTuan31.setBounds(54, 259, 89, 45);
-		contentPane.add(btnTuan31);
 		
 		JButton btnTuan32 = new JButton("Tu\u1EA7n 32");
-		btnTuan32.setBounds(54, 331, 89, 45);
-		contentPane.add(btnTuan32);
 		
 		JButton btnTuan33 = new JButton("Tu\u1EA7n 33");
-		btnTuan33.setBounds(54, 402, 89, 45);
-		contentPane.add(btnTuan33);
 		
 		JButton btnTuan34 = new JButton("Tu\u1EA7n 34");
-		btnTuan34.setBounds(54, 470, 89, 45);
-		contentPane.add(btnTuan34);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
+		
+		JButton btnTuan29 = new JButton("Tu\u1EA7n 29");
+		panel.add(btnTuan29);
+		
+		JButton btnTuan30 = new JButton("Tu\u1EA7n 30");
+		panel.add(btnTuan30);
+		panel.add(btnTuan31);
+		panel.add(btnTuan32);
+		panel.add(btnTuan33);
+		panel.add(btnTuan34);
+		
+		LayoutTuan29.addLayout(contentPane);
 	}
 }
