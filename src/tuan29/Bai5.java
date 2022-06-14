@@ -1,4 +1,4 @@
-package tuan29.baitap;
+package tuan29;
 public class Bai5 {
     public static String getKetQua() {
     	String ketQua = "Các số nằm giữa 1000 và 2000 đồng thời chia hết cho 3,5,7 là: \n";

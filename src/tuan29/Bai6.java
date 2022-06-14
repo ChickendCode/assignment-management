@@ -1,4 +1,4 @@
-package tuan29.baitap;
+package tuan29;
 public class Bai6 {
     public static String getKetQua() {
     	String ketQua = "";
