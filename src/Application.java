@@ -15,6 +15,9 @@ import javax.swing.border.EmptyBorder;
 import tuan29.baitap.Bai2;
 import tuan29.baitap.Bai3;
 import tuan29.baitap.Bai4;
+import tuan29.baitap.Bai5;
+import tuan29.baitap.Bai6;
+import tuan29.baitap.Bai7;
 
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
@@ -143,7 +146,7 @@ public class Application extends JFrame {
 		btnBai5_T29.setSize(94, 50);
 		btnBai5_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtKetQua.setText(Bai5.getKetQua());
 			}
 		});
 		
@@ -152,7 +155,7 @@ public class Application extends JFrame {
 		btnBai6_T29.setSize(91, 50);
 		btnBai6_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtKetQua.setText(Bai6.getKetQua());
 			}
 		});
 		
@@ -161,7 +164,7 @@ public class Application extends JFrame {
 		btnBai7_T29.setSize(94, 50);
 		btnBai7_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				txtKetQua.setText(Bai7.getKetQua());
 			}
 		});
 		

@@ -1,4 +1,5 @@
 package tuan29.baitap;
+
 public class Bai7 {
 
     static int countDivisibles(int A, int B, int X) {
@@ -44,18 +45,22 @@ public class Bai7 {
         return counter;
 
     }
-
-    public static void main(String[] args) {
-
-        int A = 0, B = 100, X = 5, C = 0, D = 100, E = 0, F = 100, G = 0, H = 100;
-        System.out.println(" Tổng số nh�? hơn hoặc bằng và chia hết cho 5 là:");
-        System.out.println(countDivisibles(A, B, X));
-        System.out.println(" Tổng số nh�? hơn hoặc bằng và chia 5 dư 1 là:");
-        System.out.println(countDivisibles1(C, D, X));
-        System.out.println(" Tổng số nh�? hơn hoặc bằng và chia 5 dư 2 là:");
-        System.out.println(countDivisibles2(E, F, X));
-        System.out.println(" Tổng số nh�? hơn hoặc bằng 100 và chia 5 dư 3 là:");
-        System.out.println(countDivisibles3(G, H, X));
-
+    
+    public static String getKetQua() {
+    	int A = 0, B = 100, X = 5, C = 0, D = 100, E = 0, F = 100, G = 0, H = 100;
+    	
+    	String ketQua = " Tổng số nhỏ hơn hoặc bằng và chia hết cho 5 là: \n";
+    	ketQua += countDivisibles(A, B, X) + "\n";
+        
+    	ketQua += " Tổng số nhỏ hơn hoặc bằng và chia 5 dư 1 là: \n";
+    	ketQua += countDivisibles1(C, D, X) + "\n";
+    	
+    	ketQua += " Tổng số nhỏ hơn hoặc bằng và chia 5 dư 2 là: \n";
+    	ketQua += countDivisibles2(E, F, X) + "\n";
+        
+    	ketQua += " Tổng số nhỏ hơn hoặc bằng 100 và chia 5 dư 3 là: \n";
+    	ketQua += countDivisibles3(G, H, X);
+    	
+		return ketQua;
     }
 }

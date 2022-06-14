@@ -10,7 +10,7 @@ public class Bai4 {
                 continue;
             }
             
-            ketQua += i + "\n";
+            ketQua += i + " ";
         }
         
 		return ketQua;
