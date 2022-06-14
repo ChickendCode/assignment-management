@@ -7,6 +7,9 @@ import java.awt.Window;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import java.awt.GridLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class Application extends JFrame {
 
@@ -42,11 +45,34 @@ public class Application extends JFrame {
 	 */
 	public Application() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 800, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JButton btnTuan29 = new JButton("Tu\u1EA7n 29");
+		btnTuan29.setBounds(54, 124, 89, 45);
+		contentPane.add(btnTuan29);
+		
+		JButton btnTuan30 = new JButton("Tu\u1EA7n 30");
+		btnTuan30.setBounds(54, 192, 89, 45);
+		contentPane.add(btnTuan30);
+		
+		JButton btnTuan31 = new JButton("Tu\u1EA7n 31");
+		btnTuan31.setBounds(54, 259, 89, 45);
+		contentPane.add(btnTuan31);
+		
+		JButton btnTuan32 = new JButton("Tu\u1EA7n 32");
+		btnTuan32.setBounds(54, 331, 89, 45);
+		contentPane.add(btnTuan32);
+		
+		JButton btnTuan33 = new JButton("Tu\u1EA7n 33");
+		btnTuan33.setBounds(54, 402, 89, 45);
+		contentPane.add(btnTuan33);
+		
+		JButton btnTuan34 = new JButton("Tu\u1EA7n 34");
+		btnTuan34.setBounds(54, 470, 89, 45);
+		contentPane.add(btnTuan34);
 	}
-
 }
