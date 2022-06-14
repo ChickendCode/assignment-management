@@ -217,7 +217,6 @@ public class Application extends JFrame {
 			}
 		});
 		
-//		lstBaiTapTuan29.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
 		lstBaiTapTuan29.setLayout(null);
 		lstBaiTapTuan29.add(btnBai1_T29);
 		lstBaiTapTuan29.add(txtKetQua);
