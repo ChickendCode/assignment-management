@@ -1,9 +1,8 @@
 package tuan29.baitap;
-import java.util.Scanner;
 
 public class Bai3 {
-    public static void main(String[] args) {
-        int i = 0;
+    public static String getKetQua() {
+    	int i = 0;
         int num = 0;
         // Empty String
         String primeNumbers = "";
@@ -19,7 +18,10 @@ public class Bai3 {
                 primeNumbers = primeNumbers + i + " ";
             }
         }
-        System.out.println(" Các số nguyên tố từ 1000 đến 2000 là:");
-        System.out.println(primeNumbers);
+        
+        String ketQua = "Các số nguyên tố từ 1000 đến 2000 là: \n";
+        ketQua += primeNumbers;
+        
+		return ketQua;
     }
 }

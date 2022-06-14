@@ -4,15 +4,24 @@ import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.awt.Window;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import tuan29.LayoutTuan29;
+import tuan29.baitap.Bai2;
+import tuan29.baitap.Bai3;
+import tuan29.baitap.Bai4;
+
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.JScrollPane;
 
 public class Application extends JFrame {
+	private JPanel lstBaiTapTuan29;
 	/**
 	 * 
 	 */
@@ -49,7 +58,7 @@ public class Application extends JFrame {
 	 */
 	public Application() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 800, 700);
+		setBounds(100, 100, 818, 700);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -80,6 +89,91 @@ public class Application extends JFrame {
 		panel.add(btnTuan33);
 		panel.add(btnTuan34);
 		
-		LayoutTuan29.addLayout(contentPane);
+		addLayoutTuan29(contentPane);
+	}
+	
+	private void addLayoutTuan29(JPanel contentPane) {
+		lstBaiTapTuan29 = new JPanel();
+		lstBaiTapTuan29.setBounds(185, 11, 607, 639);
+		contentPane.add(lstBaiTapTuan29);
+		
+		JTextArea txtKetQua = new JTextArea();
+		txtKetQua.setLocation(0, 154);
+		txtKetQua.setSize(607, 459);
+		txtKetQua.setLineWrap(true);
+		
+		JButton btnBai1_T29 = new JButton("B\u00E0i 1");
+		btnBai1_T29.setLocation(0, 11);
+		btnBai1_T29.setSize(91, 50);
+		btnBai1_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		JButton btnBai2_T29 = new JButton("B\u00E0i 2");
+		btnBai2_T29.setLocation(101, 11);
+		btnBai2_T29.setSize(91, 50);
+		btnBai2_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtKetQua.setText(Bai2.getKetQua());
+			}
+		});
+		
+		JButton btnBai3_T29 = new JButton("B\u00E0i 3");
+		btnBai3_T29.setLocation(202, 11);
+		btnBai3_T29.setSize(91, 50);
+		btnBai3_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtKetQua.setText(Bai3.getKetQua());
+			}
+		});
+		
+		JButton btnBai4_T29 = new JButton("B\u00E0i 4");
+		btnBai4_T29.setLocation(302, 11);
+		btnBai4_T29.setSize(91, 50);
+		btnBai4_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				txtKetQua.setText(Bai4.getKetQua());
+			}
+		});
+		
+		JButton btnBai5_T29 = new JButton("B\u00E0i 5");
+		btnBai5_T29.setLocation(402, 11);
+		btnBai5_T29.setSize(94, 50);
+		btnBai5_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		JButton btnBai6_T29 = new JButton("B\u00E0i 6");
+		btnBai6_T29.setLocation(506, 11);
+		btnBai6_T29.setSize(91, 50);
+		btnBai6_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+		JButton btnBai7_T29 = new JButton("B\u00E0i 7");
+		btnBai7_T29.setLocation(0, 72);
+		btnBai7_T29.setSize(94, 50);
+		btnBai7_T29.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		
+//		lstBaiTapTuan29.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 5));
+		lstBaiTapTuan29.setLayout(null);
+		lstBaiTapTuan29.add(btnBai1_T29);
+		lstBaiTapTuan29.add(txtKetQua);
+		lstBaiTapTuan29.add(btnBai2_T29);
+		lstBaiTapTuan29.add(btnBai3_T29);
+		lstBaiTapTuan29.add(btnBai4_T29);
+		lstBaiTapTuan29.add(btnBai5_T29);
+		lstBaiTapTuan29.add(btnBai6_T29);
+		lstBaiTapTuan29.add(btnBai7_T29);
 	}
 }

@@ -1,13 +1,12 @@
 package tuan29.baitap;
-import java.util.Scanner;
 
-class Bai2 {
-    public static void main(String args[]) {
-        int n, count = 0;
+public class Bai2 {
+    public static String getKetQua() {
+    	int n, count = 0;
         int status = 1;
         int num = 3;
-        System.out.println("20 số nguyên tố đầu tiên là:");
-        System.out.println(2);
+        String ketQua = "20 số nguyên tố đầu tiên là: \n";
+        ketQua += 2 + "\n";
         for (int i = 2; i <= 20;) {
             for (int j = 2; j <= Math.sqrt(num); j++) {
                 if (num % j == 0) {
@@ -16,12 +15,14 @@ class Bai2 {
                 }
             }
             if (status != 0) {
-                System.out.println(num);
+                ketQua += num + "\n";
                 i++;
                 count++;
             }
             status = 1;
             num++;
         }
+        
+		return ketQua;
     }
 }
