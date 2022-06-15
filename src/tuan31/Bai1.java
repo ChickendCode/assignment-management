@@ -20,6 +20,16 @@ public class Bai1 {
         System.out.println("Dãy số được sắp xếp giảm dần: ");
         show(arr);
     }
+    
+    public static String getKetQua(int[] arr) {
+    	// sắp xếp dãy số theo thứ tự giảm dần
+        sortDESC(arr);
+        String ketQua = "Dãy số được sắp xếp giảm dần: \n";
+        for (int i = 0; i < arr.length; i++) {
+            ketQua += arr[i] + " ";
+        }
+		return ketQua;
+	}
 
     public static void sortDESC(int[] arr) {
         int temp = arr[0];
