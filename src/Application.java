@@ -33,13 +33,14 @@ public class Application extends JFrame {
 	private JPanel lstBaiTapTuan32;
 	private JPanel lstBaiTapTuan33;
 	private JPanel lstBaiTapTuan34;
+	private int mode = 0;
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -4737499706082370608L;
 	private JPanel contentPane;
 
-	/**	
+	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
@@ -56,12 +57,12 @@ public class Application extends JFrame {
 			}
 		});
 	}
-	
+
 	public static void centreWindow(Window frame) {
-	    Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
-	    int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
-	    int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
-	    frame.setLocation(x, y);
+		Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
+		int x = (int) ((dimension.getWidth() - frame.getWidth()) / 2);
+		int y = (int) ((dimension.getHeight() - frame.getHeight()) / 2);
+		frame.setLocation(x, y);
 	}
 
 	/**
@@ -74,34 +75,34 @@ public class Application extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setForeground(Color.LIGHT_GRAY);
 		panel.setBounds(10, 11, 165, 639);
 		contentPane.add(panel);
-		
+
 		JButton btnTuan31 = new JButton("Tu\u1EA7n 31");
 		btnTuan31.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisableLayout(lstBaiTapTuan31);
 			}
 		});
-		
+
 		JButton btnTuan32 = new JButton("Tu\u1EA7n 32");
 		btnTuan32.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisableLayout(lstBaiTapTuan32);
 			}
 		});
-		
+
 		JButton btnTuan33 = new JButton("Tu\u1EA7n 33");
 		btnTuan33.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				setVisableLayout(lstBaiTapTuan33);
 			}
 		});
-		
+
 		JButton btnTuan34 = new JButton("Tu\u1EA7n 34");
 		btnTuan34.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -109,7 +110,7 @@ public class Application extends JFrame {
 			}
 		});
 		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
-		
+
 		JButton btnTuan29 = new JButton("Tu\u1EA7n 29");
 		btnTuan29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -117,7 +118,7 @@ public class Application extends JFrame {
 			}
 		});
 		panel.add(btnTuan29);
-		
+
 		JButton btnTuan30 = new JButton("Tu\u1EA7n 30");
 		btnTuan30.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,17 +130,17 @@ public class Application extends JFrame {
 		panel.add(btnTuan32);
 		panel.add(btnTuan33);
 		panel.add(btnTuan34);
-		
+
 		addLayoutTuan29(contentPane);
 		addLayoutTuan30(contentPane);
 		addLayoutTuan31(contentPane);
 		addLayoutTuan32(contentPane);
 		addLayoutTuan33(contentPane);
 		addLayoutTuan34(contentPane);
-		
+
 		setVisableLayout(null);
 	}
-	
+
 	private void setVisableLayout(JPanel panel) {
 		for (JPanel jPanel : lstPanel) {
 			if (panel == null) {
@@ -151,23 +152,23 @@ public class Application extends JFrame {
 					jPanel.setVisible(false);
 				}
 			}
-			
+
 		}
 	}
-	
+
 	private void addLayoutTuan29(JPanel contentPane) {
 		lstBaiTapTuan29 = new JPanel();
 		lstBaiTapTuan29.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan29);
-		
+
 		JTextArea txtKetQua = new JTextArea();
 		txtKetQua.setLocation(0, 194);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
-		
+
 		JPanel panelBai1 = new JPanel();
 		panelBai1.setVisible(false);
-		
+
 		JButton btnBai1_T29 = new JButton("B\u00E0i 1");
 		btnBai1_T29.setLocation(0, 11);
 		btnBai1_T29.setSize(91, 50);
@@ -177,7 +178,7 @@ public class Application extends JFrame {
 				txtKetQua.setText("");
 			}
 		});
-		
+
 		JButton btnBai2_T29 = new JButton("B\u00E0i 2");
 		btnBai2_T29.setLocation(101, 11);
 		btnBai2_T29.setSize(91, 50);
@@ -187,7 +188,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai2.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai3_T29 = new JButton("B\u00E0i 3");
 		btnBai3_T29.setLocation(202, 11);
 		btnBai3_T29.setSize(91, 50);
@@ -197,7 +198,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai3.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai4_T29 = new JButton("B\u00E0i 4");
 		btnBai4_T29.setLocation(302, 11);
 		btnBai4_T29.setSize(91, 50);
@@ -207,7 +208,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai4.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai5_T29 = new JButton("B\u00E0i 5");
 		btnBai5_T29.setLocation(402, 11);
 		btnBai5_T29.setSize(94, 50);
@@ -217,7 +218,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai5.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai6_T29 = new JButton("B\u00E0i 6");
 		btnBai6_T29.setLocation(506, 11);
 		btnBai6_T29.setSize(91, 50);
@@ -227,7 +228,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai6.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai7_T29 = new JButton("B\u00E0i 7");
 		btnBai7_T29.setLocation(0, 72);
 		btnBai7_T29.setSize(94, 50);
@@ -237,7 +238,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai7.getKetQua());
 			}
 		});
-		
+
 		lstBaiTapTuan29.setLayout(null);
 		lstBaiTapTuan29.add(btnBai1_T29);
 		lstBaiTapTuan29.add(txtKetQua);
@@ -247,39 +248,37 @@ public class Application extends JFrame {
 		lstBaiTapTuan29.add(btnBai5_T29);
 		lstBaiTapTuan29.add(btnBai6_T29);
 		lstBaiTapTuan29.add(btnBai7_T29);
-		
-		
+
 		panelBai1.setBounds(0, 133, 258, 37);
 		panelBai1.setLayout(null);
 		lstBaiTapTuan29.add(panelBai1);
-		
+
 		JLabel lbl_BT1 = new JLabel("Nhập n");
 		lbl_BT1.setLocation(10, 11);
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
-		
+
 		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
-		
+
 		JButton btnKetQua_BT1 = new JButton("Kết quả");
 		btnKetQua_BT1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String n = txtN_BT1.getText();
 				if (n.equals("")) {
 					return;
 				}
-				
+
 				int nInt = Integer.parseInt(n);
 				txtKetQua.setText(Bai1.getKetQua(nInt));
 			}
 		});
 		btnKetQua_BT1.setBounds(151, 9, 89, 23);
 		panelBai1.add(btnKetQua_BT1);
-		
-		
+
 		lstPanel.add(lstBaiTapTuan29);
 	}
 
@@ -287,110 +286,123 @@ public class Application extends JFrame {
 		lstBaiTapTuan30 = new JPanel();
 		lstBaiTapTuan30.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan30);
-		
+
+		JTextField txtN_BT1 = new JTextField();
+		txtN_BT1.setBounds(55, 10, 86, 20);
+		txtN_BT1.setColumns(10);
+
 		JTextArea txtKetQua = new JTextArea();
 		txtKetQua.setLocation(0, 120);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
-		
+
 		JPanel panelBai1 = new JPanel();
 		panelBai1.setVisible(false);
-		
+
 		JButton btnBai1_T29 = new JButton("B\u00E0i 1");
 		btnBai1_T29.setLocation(0, 11);
 		btnBai1_T29.setSize(91, 50);
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(true);
-				txtKetQua.setText("");
+				setControlForPanel(txtKetQua, 1, panelBai1, txtN_BT1);
 			}
 		});
-		
+
 		JButton btnBai2_T29 = new JButton("B\u00E0i 2");
 		btnBai2_T29.setLocation(101, 11);
 		btnBai2_T29.setSize(91, 50);
 		btnBai2_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai2.getKetQua());
+				setControlForPanel(txtKetQua, 2, panelBai1, txtN_BT1);
 			}
 		});
-		
+
 		JButton btnBai3_T29 = new JButton("B\u00E0i 3");
 		btnBai3_T29.setLocation(202, 11);
 		btnBai3_T29.setSize(91, 50);
 		btnBai3_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai3.getKetQua());
+				setControlForPanel(txtKetQua, 3, panelBai1, txtN_BT1);
 			}
 		});
-		
+
 		JButton btnBai4_T29 = new JButton("B\u00E0i 4");
 		btnBai4_T29.setLocation(302, 11);
 		btnBai4_T29.setSize(91, 50);
 		btnBai4_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai4.getKetQua());
+				setControlForPanel(txtKetQua, 4, panelBai1, txtN_BT1);
 			}
 		});
-		
-		
+
 		lstBaiTapTuan30.setLayout(null);
 		lstBaiTapTuan30.add(btnBai1_T29);
 		lstBaiTapTuan30.add(txtKetQua);
 		lstBaiTapTuan30.add(btnBai2_T29);
 		lstBaiTapTuan30.add(btnBai3_T29);
 		lstBaiTapTuan30.add(btnBai4_T29);
-		
-		
+
 		panelBai1.setBounds(0, 72, 258, 37);
 		panelBai1.setLayout(null);
 		lstBaiTapTuan30.add(panelBai1);
-		
+
 		JLabel lbl_BT1 = new JLabel("Nhập n");
 		lbl_BT1.setLocation(10, 11);
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
-		
-		JTextField txtN_BT1 = new JTextField();
-		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
-		txtN_BT1.setColumns(10);
-		
+
 		JButton btnKetQua_BT1 = new JButton("Kết quả");
 		btnKetQua_BT1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String n = txtN_BT1.getText();
 				if (n.equals("")) {
 					return;
 				}
-				
+
 				int nInt = Integer.parseInt(n);
-				txtKetQua.setText(tuan30.Bai1.getKetQua(nInt));
+				String ketQua = null;
+
+				if (mode == 1) {
+					ketQua = tuan30.Bai1.getKetQua(nInt);
+				} else if (mode == 2) {
+					ketQua = tuan30.Bai2.getKetQua(nInt);
+				} else if (mode == 3) {
+					ketQua = tuan30.Bai3.getKetQua(nInt);
+				} else if (mode == 4) {
+					ketQua = tuan30.Bai4.getKetQua(nInt);
+				}
+
+				txtKetQua.setText(ketQua);
 			}
 		});
 		btnKetQua_BT1.setBounds(151, 9, 89, 23);
 		panelBai1.add(btnKetQua_BT1);
-		
+
 		lstPanel.add(lstBaiTapTuan30);
+	}
+
+	private void setControlForPanel(JTextArea txtKetQua, int mode, JPanel panel, JTextField txtN_BT1) {
+		panel.setVisible(true);
+		txtKetQua.setText("");
+		this.mode = mode;
+		txtN_BT1.setText("");
 	}
 
 	private void addLayoutTuan31(JPanel contentPane) {
 		lstBaiTapTuan31 = new JPanel();
 		lstBaiTapTuan31.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan31);
-		
+
 		JTextArea txtKetQua = new JTextArea();
 		txtKetQua.setLocation(0, 194);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
-		
+
 		JPanel panelBai1 = new JPanel();
 		panelBai1.setVisible(false);
-		
+
 		JButton btnBai1_T29 = new JButton("B\u00E0i 1");
 		btnBai1_T29.setLocation(0, 11);
 		btnBai1_T29.setSize(91, 50);
@@ -399,7 +411,7 @@ public class Application extends JFrame {
 				panelBai1.setVisible(true);
 			}
 		});
-		
+
 		JButton btnBai2_T29 = new JButton("B\u00E0i 2");
 		btnBai2_T29.setLocation(101, 11);
 		btnBai2_T29.setSize(91, 50);
@@ -409,7 +421,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai2.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai3_T29 = new JButton("B\u00E0i 3");
 		btnBai3_T29.setLocation(202, 11);
 		btnBai3_T29.setSize(91, 50);
@@ -419,7 +431,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai3.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai4_T29 = new JButton("B\u00E0i 4");
 		btnBai4_T29.setLocation(302, 11);
 		btnBai4_T29.setSize(91, 50);
@@ -429,7 +441,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai4.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai5_T29 = new JButton("B\u00E0i 5");
 		btnBai5_T29.setLocation(402, 11);
 		btnBai5_T29.setSize(94, 50);
@@ -439,7 +451,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai5.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai6_T29 = new JButton("B\u00E0i 6");
 		btnBai6_T29.setLocation(506, 11);
 		btnBai6_T29.setSize(91, 50);
@@ -449,7 +461,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai6.getKetQua());
 			}
 		});
-		
+
 		lstBaiTapTuan31.setLayout(null);
 		lstBaiTapTuan31.add(btnBai1_T29);
 		lstBaiTapTuan31.add(txtKetQua);
@@ -458,55 +470,53 @@ public class Application extends JFrame {
 		lstBaiTapTuan31.add(btnBai4_T29);
 		lstBaiTapTuan31.add(btnBai5_T29);
 		lstBaiTapTuan31.add(btnBai6_T29);
-		
-		
+
 		panelBai1.setBounds(0, 133, 258, 37);
 		panelBai1.setLayout(null);
 		lstBaiTapTuan31.add(panelBai1);
-		
+
 		JLabel lbl_BT1 = new JLabel("Nhập n");
 		lbl_BT1.setLocation(10, 11);
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
-		
+
 		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
-		
+
 		JButton btnKetQua_BT1 = new JButton("Kết quả");
 		btnKetQua_BT1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String n = txtN_BT1.getText();
 				if (n.equals("")) {
 					return;
 				}
-				
+
 				int nInt = Integer.parseInt(n);
 				txtKetQua.setText(Bai1.getKetQua(nInt));
 			}
 		});
 		btnKetQua_BT1.setBounds(151, 9, 89, 23);
 		panelBai1.add(btnKetQua_BT1);
-		
-		
+
 		lstPanel.add(lstBaiTapTuan31);
 	}
-	
+
 	private void addLayoutTuan32(JPanel contentPane) {
 		lstBaiTapTuan32 = new JPanel();
 		lstBaiTapTuan32.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan32);
-		
+
 		JTextArea txtKetQua = new JTextArea();
 		txtKetQua.setLocation(0, 194);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
-		
+
 		JPanel panelBai1 = new JPanel();
 		panelBai1.setVisible(false);
-		
+
 		JButton btnBai1_T29 = new JButton("B\u00E0i 1");
 		btnBai1_T29.setLocation(0, 11);
 		btnBai1_T29.setSize(91, 50);
@@ -515,7 +525,7 @@ public class Application extends JFrame {
 				panelBai1.setVisible(true);
 			}
 		});
-		
+
 		JButton btnBai2_T29 = new JButton("B\u00E0i 2");
 		btnBai2_T29.setLocation(101, 11);
 		btnBai2_T29.setSize(91, 50);
@@ -525,7 +535,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai2.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai3_T29 = new JButton("B\u00E0i 3");
 		btnBai3_T29.setLocation(202, 11);
 		btnBai3_T29.setSize(91, 50);
@@ -535,7 +545,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai3.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai4_T29 = new JButton("B\u00E0i 4");
 		btnBai4_T29.setLocation(302, 11);
 		btnBai4_T29.setSize(91, 50);
@@ -545,7 +555,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai4.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai5_T29 = new JButton("B\u00E0i 5");
 		btnBai5_T29.setLocation(402, 11);
 		btnBai5_T29.setSize(94, 50);
@@ -555,7 +565,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai5.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai6_T29 = new JButton("B\u00E0i 6");
 		btnBai6_T29.setLocation(506, 11);
 		btnBai6_T29.setSize(91, 50);
@@ -565,7 +575,7 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai6.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai7_T29 = new JButton("B\u00E0i 7");
 		btnBai7_T29.setLocation(0, 72);
 		btnBai7_T29.setSize(94, 50);
@@ -575,13 +585,13 @@ public class Application extends JFrame {
 				txtKetQua.setText(Bai7.getKetQua());
 			}
 		});
-		
+
 		JButton btnBai8 = new JButton("Bài 8");
 		btnBai8.setBounds(101, 72, 94, 50);
-		
+
 		JButton btnBai9 = new JButton("Bài 9");
 		btnBai9.setBounds(202, 72, 94, 50);
-		
+
 		lstBaiTapTuan32.add(btnBai8);
 		lstBaiTapTuan32.add(btnBai9);
 		lstBaiTapTuan32.setLayout(null);
@@ -593,58 +603,53 @@ public class Application extends JFrame {
 		lstBaiTapTuan32.add(btnBai5_T29);
 		lstBaiTapTuan32.add(btnBai6_T29);
 		lstBaiTapTuan32.add(btnBai7_T29);
-		
-		
+
 		panelBai1.setBounds(0, 133, 258, 37);
 		panelBai1.setLayout(null);
 		lstBaiTapTuan32.add(panelBai1);
-		
+
 		JLabel lbl_BT1 = new JLabel("Nhập n");
 		lbl_BT1.setLocation(10, 11);
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
-		
+
 		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
-		
+
 		JButton btnKetQua_BT1 = new JButton("Kết quả");
 		btnKetQua_BT1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-			
+
 				String n = txtN_BT1.getText();
 				if (n.equals("")) {
 					return;
 				}
-				
+
 				int nInt = Integer.parseInt(n);
 				txtKetQua.setText(Bai1.getKetQua(nInt));
 			}
 		});
 		btnKetQua_BT1.setBounds(151, 9, 89, 23);
 		panelBai1.add(btnKetQua_BT1);
-		
-		
+
 		lstPanel.add(lstBaiTapTuan32);
 	}
-
 
 	private void addLayoutTuan33(JPanel contentPane) {
 		lstBaiTapTuan33 = new JPanel();
 		lstBaiTapTuan33.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan33);
-		
-		
+
 		lstPanel.add(lstBaiTapTuan33);
 	}
-	
+
 	private void addLayoutTuan34(JPanel contentPane) {
 		lstBaiTapTuan34 = new JPanel();
 		lstBaiTapTuan34.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan34);
-		
-		
+
 		lstPanel.add(lstBaiTapTuan34);
 	}
 }
