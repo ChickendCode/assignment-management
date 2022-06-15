@@ -391,16 +391,54 @@ public class Application extends JFrame {
 	}
 
 	private void addLayoutTuan31(JPanel contentPane) {
+		List<JTextField> txtArr = new ArrayList<JTextField>();
+		
 		lstBaiTapTuan31 = new JPanel();
 		lstBaiTapTuan31.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan31);
 		
+		JPanel panelElementArray = new JPanel();
+		panelElementArray.setBounds(0, 110, 258, 37);
+		panelElementArray.setLayout(null);
+//		
 		JTextField txtN_BT1 = new JTextField();
-		txtN_BT1.setBounds(55, 10, 86, 20);
-		txtN_BT1.setColumns(10);
+		txtN_BT1.setBounds(160, 10, 50, 20);
+		txtN_BT1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String n = txtN_BT1.getText();
+				if (n.equals("")) {
+					return;
+				}
+				
+				panelElementArray.removeAll();
+				txtArr.clear();
 
+				int nInt = Integer.parseInt(n);
+				for (int i = 0; i < nInt; i++) {
+					JPanel panel = new JPanel();
+					panel.setBounds(i * 30, 0, 80, 37);
+					panel.setLayout(null);
+					
+					JLabel lbl = new JLabel("a["+ i +" - "+ (nInt - 1) +"]");
+					lbl.setBounds(0, 0, 50, 20);
+					panel.add(lbl);
+					
+					JTextField txt = new JTextField();
+					txt.setText(" ");
+					txt.setBounds(50, 0, 20, 20);
+					panel.add(txt);
+					
+					txtArr.add(txt);
+					
+					panelElementArray.add(panel);
+					panelElementArray.updateUI();
+				}
+				
+			}
+		});
+		
 		JTextArea txtKetQua = new JTextArea();
-		txtKetQua.setLocation(0, 120);
+		txtKetQua.setLocation(0, 170);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
 
@@ -412,8 +450,8 @@ public class Application extends JFrame {
 		btnBai1_T29.setSize(91, 50);
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				panelBai1.setVisible(true);
-				txtKetQua.setText(tuan31.Bai1.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }));
+				panelBai1.setVisible(true);
+				mode = 1;
 			}
 		});
 
@@ -422,7 +460,8 @@ public class Application extends JFrame {
 		btnBai2_T29.setSize(91, 50);
 		btnBai2_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtKetQua.setText(tuan31.Bai2.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
+				panelBai1.setVisible(true);
+				mode = 2;
 			}
 		});
 
@@ -431,6 +470,7 @@ public class Application extends JFrame {
 		btnBai3_T29.setSize(91, 50);
 		btnBai3_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelBai1.setVisible(false);
 				txtKetQua.setText(tuan31.Bai3.getKetQua());
 			}
 		});
@@ -440,6 +480,7 @@ public class Application extends JFrame {
 		btnBai4_T29.setSize(91, 50);
 		btnBai4_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				panelBai1.setVisible(false);
 				txtKetQua.setText(tuan31.Bai4.getKetQua());
 			}
 		});
@@ -449,7 +490,8 @@ public class Application extends JFrame {
 		btnBai5_T29.setSize(94, 50);
 		btnBai5_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtKetQua.setText(tuan31.Bai5.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
+				panelBai1.setVisible(true);
+				mode = 5;
 			}
 		});
 
@@ -458,11 +500,48 @@ public class Application extends JFrame {
 		btnBai6_T29.setSize(91, 50);
 		btnBai6_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				txtKetQua.setText(tuan31.Bai6.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
+				panelBai1.setVisible(true);
+				mode = 6;
 			}
 		});
 
 		lstBaiTapTuan31.setLayout(null);
+		
+		
+		lstBaiTapTuan31.add(panelElementArray);
+		
+		JButton btnKetQua = new JButton("Kết quả");
+		btnKetQua.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				int[] arr = new int[txtArr.size()];
+				for (int i = 0; i < txtArr.size(); i++) {
+					String n = txtArr.get(i).getText().trim();
+					if (n.equals("")) {
+						continue;
+					}
+
+					int nInt = Integer.parseInt(n);
+					arr[i] = nInt;
+				}
+				
+				String ketQua = null;
+				if (mode == 1) {
+					ketQua = tuan31.Bai1.getKetQua(arr);
+				} else if (mode == 2) {
+					ketQua = tuan31.Bai2.getKetQua(arr, txtArr.size());
+				} else if (mode == 5) {
+					ketQua = tuan31.Bai5.getKetQua(arr, txtArr.size());
+				} else if (mode == 6) {
+					ketQua = tuan31.Bai6.getKetQua(arr, txtArr.size());
+				}
+				
+				txtKetQua.setText(ketQua);
+			}
+		});
+		btnKetQua.setBounds(0, 300, 89, 23);
+		lstBaiTapTuan31.add(btnKetQua);
+		
 		lstBaiTapTuan31.add(btnBai1_T29);
 		lstBaiTapTuan31.add(txtKetQua);
 		lstBaiTapTuan31.add(btnBai2_T29);
@@ -475,27 +554,11 @@ public class Application extends JFrame {
 		panelBai1.setLayout(null);
 		lstBaiTapTuan31.add(panelBai1);
 
-		JLabel lbl_BT1 = new JLabel("Nhập n");
-		lbl_BT1.setLocation(10, 11);
-		lbl_BT1.setSize(55, 18);
+		JLabel lbl_BT1 = new JLabel("Nhập số phần tử của mảng: ");
+		lbl_BT1.setLocation(0, 11);
+		lbl_BT1.setSize(170, 18);
 		panelBai1.add(lbl_BT1);
 		panelBai1.add(txtN_BT1);
-
-		JButton btnKetQua_BT1 = new JButton("Kết quả");
-		btnKetQua_BT1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				String n = txtN_BT1.getText();
-				if (n.equals("")) {
-					return;
-				}
-
-				int nInt = Integer.parseInt(n);
-				txtKetQua.setText(Bai1.getKetQua(nInt));
-			}
-		});
-		btnKetQua_BT1.setBounds(151, 9, 89, 23);
-		panelBai1.add(btnKetQua_BT1);
 
 		lstPanel.add(lstBaiTapTuan31);
 	}
