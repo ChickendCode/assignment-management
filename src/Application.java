@@ -412,7 +412,8 @@ public class Application extends JFrame {
 		btnBai1_T29.setSize(91, 50);
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(true);
+//				panelBai1.setVisible(true);
+				txtKetQua.setText(tuan31.Bai1.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }));
 			}
 		});
 
@@ -421,8 +422,7 @@ public class Application extends JFrame {
 		btnBai2_T29.setSize(91, 50);
 		btnBai2_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai2.getKetQua());
+				txtKetQua.setText(tuan31.Bai2.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
 			}
 		});
 
@@ -449,8 +449,7 @@ public class Application extends JFrame {
 		btnBai5_T29.setSize(94, 50);
 		btnBai5_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai5.getKetQua());
+				txtKetQua.setText(tuan31.Bai5.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
 			}
 		});
 
@@ -459,8 +458,7 @@ public class Application extends JFrame {
 		btnBai6_T29.setSize(91, 50);
 		btnBai6_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panelBai1.setVisible(false);
-				txtKetQua.setText(Bai6.getKetQua());
+				txtKetQua.setText(tuan31.Bai6.getKetQua(new int[] { 2, 3, 4, 5, 6, 7, 8 }, 7));
 			}
 		});
 

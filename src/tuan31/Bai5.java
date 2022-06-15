@@ -30,6 +30,27 @@ public class Bai5 {
         System.out.println("Co " + c + " hop so");
 
     }
+    
+    public static String getKetQua(int[] arr, int n) {
+    	int i;
+    	int b = 0;
+        int c = 0;
+        for (i = 0; i < n; i++) {
+            if (check(arr[i])) {
+                b++;
+
+            } else {
+                if (arr[i] > 3) {
+                    c++;
+                }
+            }
+
+        }
+        
+        String ketQua = "Co " + b + " so nguyen to \n";
+        ketQua += "Co " + c + " hop so";
+		return ketQua;
+	}
 
     public static boolean check(int n) {
         if (n <= 1)
