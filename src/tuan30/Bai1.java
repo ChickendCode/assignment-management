@@ -1,10 +1,6 @@
 package tuan30;
 
-import java.util.Scanner;
-
 public class Bai1 {
-
-    public static int n;
 
     public static double cong(int n) {
         double tmp = 1;
@@ -17,14 +13,12 @@ public class Bai1 {
 
     }
 
-    public static void main(String[] args) {
-        float tong = 0.0f;
-        Scanner reader = new Scanner(System.in);
-        System.out.print("Nhập số tự nhiên N = ");
-        n = reader.nextInt();
+    public static String getKetQua(int n) {
+    	float tong = 0.0f;
         for (int i = 1; i <= n; i++) {
             tong += 1 / cong(i);
         }
-        System.out.println("tong day so la: " + tong);
+    	
+		return "tong day so la: " + tong;
     }
 }

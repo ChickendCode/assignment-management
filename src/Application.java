@@ -11,7 +11,10 @@ import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import tuan29.Bai1;
@@ -21,12 +24,6 @@ import tuan29.Bai4;
 import tuan29.Bai5;
 import tuan29.Bai6;
 import tuan29.Bai7;
-
-import javax.swing.JTextArea;
-import javax.swing.ScrollPaneConstants;
-import javax.swing.JScrollPane;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public class Application extends JFrame {
 	private List<JPanel> lstPanel = new ArrayList<JPanel>();
@@ -41,7 +38,6 @@ public class Application extends JFrame {
 	 */
 	private static final long serialVersionUID = -4737499706082370608L;
 	private JPanel contentPane;
-	private JTextField txtN_BT1;
 
 	/**	
 	 * Launch the application.
@@ -178,6 +174,7 @@ public class Application extends JFrame {
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelBai1.setVisible(true);
+				txtKetQua.setText("");
 			}
 		});
 		
@@ -261,7 +258,7 @@ public class Application extends JFrame {
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
 		
-		txtN_BT1 = new JTextField();
+		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
@@ -292,7 +289,7 @@ public class Application extends JFrame {
 		contentPane.add(lstBaiTapTuan30);
 		
 		JTextArea txtKetQua = new JTextArea();
-		txtKetQua.setLocation(0, 194);
+		txtKetQua.setLocation(0, 120);
 		txtKetQua.setSize(607, 419);
 		txtKetQua.setLineWrap(true);
 		
@@ -305,6 +302,7 @@ public class Application extends JFrame {
 		btnBai1_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panelBai1.setVisible(true);
+				txtKetQua.setText("");
 			}
 		});
 		
@@ -347,7 +345,7 @@ public class Application extends JFrame {
 		lstBaiTapTuan30.add(btnBai4_T29);
 		
 		
-		panelBai1.setBounds(0, 133, 258, 37);
+		panelBai1.setBounds(0, 72, 258, 37);
 		panelBai1.setLayout(null);
 		lstBaiTapTuan30.add(panelBai1);
 		
@@ -356,7 +354,7 @@ public class Application extends JFrame {
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
 		
-		txtN_BT1 = new JTextField();
+		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
@@ -371,7 +369,7 @@ public class Application extends JFrame {
 				}
 				
 				int nInt = Integer.parseInt(n);
-				txtKetQua.setText(Bai1.getKetQua(nInt));
+				txtKetQua.setText(tuan30.Bai1.getKetQua(nInt));
 			}
 		});
 		btnKetQua_BT1.setBounds(151, 9, 89, 23);
@@ -471,7 +469,7 @@ public class Application extends JFrame {
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
 		
-		txtN_BT1 = new JTextField();
+		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
@@ -606,7 +604,7 @@ public class Application extends JFrame {
 		lbl_BT1.setSize(55, 18);
 		panelBai1.add(lbl_BT1);
 		
-		txtN_BT1 = new JTextField();
+		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(55, 10, 86, 20);
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
