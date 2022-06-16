@@ -6,15 +6,17 @@ import java.util.List;
 // DOANLONGVU 20198195
 // Cho danh sách họ tên đầy đủ học sinh. Hãy đếm xem có bao nhiêu bạn có phần đệm là “Thị”.
 public class Bai8 {
-    public static void main(String[] args) {
-        ArrayList<String> DS = new ArrayList<>(); // khai báo một danh sách mảng trống có tên là DS
-        // su dung phuong thuc add() them các phần tử vào DS
-        DS.add(" Nguyễn Mạnh Dũng ");
-        DS.add(" Nguyễn Đức Anh");
-        DS.add(" Đoàn Long Vũ");
-        DS.add(" Nguyễn Thị Hạnh ");
-
-        System.out.println(" Số học sinh tên đệm Thị là :" + count(DS));
+    public static String getKetQua() {
+		 ArrayList<String> DS = new ArrayList<>(); // khai báo một danh sách mảng trống có tên là DS
+	     // su dung phuong thuc add() them các phần tử vào DS
+	     DS.add(" Nguyễn Mạnh Dũng ");
+	     DS.add(" Nguyễn Đức Anh");
+	     DS.add(" Đoàn Long Vũ");
+	     DS.add(" Nguyễn Thị Hạnh ");
+        
+    	String ketQua = String.join("\n", DS);
+    	ketQua += "\n Số học sinh tên đệm Thị là :" + count(DS);
+    	return ketQua;
     }
 
     // phương thức tachten

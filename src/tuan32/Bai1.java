@@ -1,21 +1,12 @@
 package tuan32;
 
-import java.util.Scanner;
 // DOANLONGVU 20198195
 public class Bai1 {
-    public static void main(String[] args) {
-
-        //sử dụng class Scanner để lấy dữ liệu từ bàn phím.
-        Scanner sc = new Scanner(System.in);
-        System.out.print(" Nhập chuỗi :");
-        String input = sc.nextLine();
-        //hiển thị chuỗi ban đầu
-        System.out.println("Chuỗi ban đầu: " + input);
-
-        //sử dụng phương thức replaceAll() để thay thế " " bằng "".
-        input = input.replaceAll("\\s", "");
-        System.out.println("Chuỗi sau khi xóa dấu cách là : " + input);
-
-
+    public static String getKetQua(String input) {
+    	String ketQua = "Chuỗi ban đầu: " + input + "\n";
+    	input = input.replaceAll("\\s", "");
+    	
+    	ketQua += "Chuỗi sau khi xóa dấu cách là : " + input;
+    	return ketQua;
     }
 }

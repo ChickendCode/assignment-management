@@ -22,16 +22,17 @@ public class Bai9 {
         }
         return count;
     }
-
-    public static void main(String[] args) {
-        ArrayList<String> DS = new ArrayList<>();// khai bao mot danh sach mang trong co ten la DS
+    
+    public static String getKetQua() {
+    	ArrayList<String> DS = new ArrayList<>();// khai bao mot danh sach mang trong co ten la DS
         // su dung phuong thuc add() de them cac phan tu vao mang
         DS.add(" Nguyễn Đức Anh ");
         DS.add(" Đoàn Long Vũ ");
         DS.add(" Nguyễn Mạnh Dũng ");
         DS.add(" Trần Quang Hải ");
-
-        System.out.println(" Số học sinh có tên bắt đầu bằng chữ cái H là :" + count(DS));
-
-    }
+        
+        String ketQua = String.join("\n", DS);
+        ketQua += "\n Số học sinh có tên bắt đầu bằng chữ cái H là :" + count(DS);
+		return ketQua;
+	}
 }
