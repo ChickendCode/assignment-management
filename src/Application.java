@@ -24,6 +24,7 @@ import tuan29.Bai4;
 import tuan29.Bai5;
 import tuan29.Bai6;
 import tuan29.Bai7;
+import javax.swing.border.LineBorder;
 
 public class Application extends JFrame {
 	private List<JPanel> lstPanel = new ArrayList<JPanel>();
@@ -39,6 +40,11 @@ public class Application extends JFrame {
 	 */
 	private static final long serialVersionUID = -4737499706082370608L;
 	private JPanel contentPane;
+	private JTextField textMode;
+	private JTextField txtLoaiCanBo;
+	private JTextField txtHoTen;
+	private JTextField txtGioiTinh;
+	private JTextField txtNamSinh;
 
 	/**
 	 * Launch the application.
@@ -131,10 +137,10 @@ public class Application extends JFrame {
 		panel.add(btnTuan33);
 		panel.add(btnTuan34);
 
-		addLayoutTuan29(contentPane);
-		addLayoutTuan30(contentPane);
-		addLayoutTuan31(contentPane);
-		addLayoutTuan32(contentPane);
+//		addLayoutTuan29(contentPane);
+//		addLayoutTuan30(contentPane);
+//		addLayoutTuan31(contentPane);
+//		addLayoutTuan32(contentPane);
 		addLayoutTuan33(contentPane);
 		addLayoutTuan34(contentPane);
 
@@ -739,9 +745,82 @@ public class Application extends JFrame {
 	private void addLayoutTuan33(JPanel contentPane) {
 		lstBaiTapTuan33 = new JPanel();
 		lstBaiTapTuan33.setBounds(185, 11, 607, 639);
+		lstBaiTapTuan33.setLayout(null);
 		contentPane.add(lstBaiTapTuan33);
-
 		lstPanel.add(lstBaiTapTuan33);
+		
+		JPanel panel = new JPanel();
+		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		panel.setBounds(10, 177, 587, 177);
+		panel.setLayout(null);
+		lstBaiTapTuan33.add(panel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Nhap loai can bo CN,KS,NV:");
+		lblNewLabel_1.setBounds(10, 38, 156, 14);
+		panel.add(lblNewLabel_1);
+		
+		txtLoaiCanBo = new JTextField();
+		txtLoaiCanBo.setBounds(177, 35, 40, 20);
+		panel.add(txtLoaiCanBo);
+		txtLoaiCanBo.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("Nhap Ho Ten");
+		lblNewLabel_2.setBounds(10, 66, 131, 14);
+		panel.add(lblNewLabel_2);
+		
+		txtHoTen = new JTextField();
+		txtHoTen.setBounds(177, 63, 110, 20);
+		panel.add(txtHoTen);
+		txtHoTen.setColumns(10);
+		
+		JLabel lblNewLabel_3 = new JLabel("Nhap Gioi Tinh");
+		lblNewLabel_3.setBounds(10, 99, 131, 14);
+		panel.add(lblNewLabel_3);
+		
+		txtGioiTinh = new JTextField();
+		txtGioiTinh.setBounds(177, 94, 110, 20);
+		panel.add(txtGioiTinh);
+		txtGioiTinh.setColumns(10);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Nhap Nam Sinh");
+		lblNewLabel_3_1.setBounds(10, 131, 131, 14);
+		panel.add(lblNewLabel_3_1);
+		
+		txtNamSinh = new JTextField();
+		txtNamSinh.setColumns(10);
+		txtNamSinh.setBounds(177, 126, 110, 20);
+		panel.add(txtNamSinh);
+		
+		JButton btnNewButton = new JButton("Xong");
+		btnNewButton.setBounds(488, 143, 89, 23);
+		panel.add(btnNewButton);
+		
+		JLabel lblNewLabel_4 = new JLabel("Nhap vao thong tin cho can bo thu {0}");
+		lblNewLabel_4.setBounds(10, 11, 277, 14);
+		panel.add(lblNewLabel_4);
+		
+		JTextArea txt = new JTextArea("||===============================||\r\n||                Chuong Trinh QLy Can Bo         ||\r\n||           1. Nhap Thong Tin moi n CBo        ||\r\n||           2. Tim kiem theo ho ten                   ||\r\n||           3. Hien thi thong tin ve dsCB          ||\r\n||           4. Thoat khoi chuong trinh              ||\r\n||===============================||");
+		txt.setEditable(false);
+		txt.setBounds(10, 11, 575, 137);
+		lstBaiTapTuan33.add(txt);
+		
+		JLabel lblNewLabel = new JLabel("Chọn chức năng:");
+		lblNewLabel.setBounds(10, 152, 112, 14);
+		lstBaiTapTuan33.add(lblNewLabel);
+		
+		textMode = new JTextField();
+		textMode.setBounds(132, 149, 48, 20);
+		lstBaiTapTuan33.add(textMode);
+		textMode.setColumns(10);
+		
+		JButton btnRun = new JButton("Run");
+		btnRun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
+		btnRun.setBounds(198, 148, 89, 23);
+		lstBaiTapTuan33.add(btnRun);
 	}
 
 	private void addLayoutTuan34(JPanel contentPane) {
