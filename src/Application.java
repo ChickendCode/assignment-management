@@ -25,8 +25,10 @@ import tuan29.Bai5;
 import tuan29.Bai6;
 import tuan29.Bai7;
 import tuan33.QLyCanBo;
+import tuan34.QlyKhachSan;
 
 import javax.swing.border.LineBorder;
+import javax.swing.JTextPane;
 
 public class Application extends JFrame {
 	private List<JPanel> lstPanel = new ArrayList<JPanel>();
@@ -52,6 +54,12 @@ public class Application extends JFrame {
 	private JTextField txtSoLuongCB;
 	private JTextField txtNamSinh;
 	private JTextField txtTuKhoa;
+	private JTextField txtMode;
+	private JTextField txtHoTenKH;
+	private JTextField txtNamSinhKH;
+	private JTextField txtCMND;
+	private JTextField txtLoaiPhong;
+	private JTextField txtSoNgayThue;
 
 	/**
 	 * Launch the application.
@@ -148,7 +156,7 @@ public class Application extends JFrame {
 //		addLayoutTuan30(contentPane);
 //		addLayoutTuan31(contentPane);
 //		addLayoutTuan32(contentPane);
-		addLayoutTuan33(contentPane);
+//		addLayoutTuan33(contentPane);
 		addLayoutTuan34(contentPane);
 
 		setVisableLayout(null);
@@ -996,8 +1004,133 @@ public class Application extends JFrame {
 	private void addLayoutTuan34(JPanel contentPane) {
 		lstBaiTapTuan34 = new JPanel();
 		lstBaiTapTuan34.setBounds(185, 11, 607, 639);
+		lstBaiTapTuan34.setLayout(null);
 		contentPane.add(lstBaiTapTuan34);
 
 		lstPanel.add(lstBaiTapTuan34);
+		
+		JPanel pnFormInput = new JPanel();
+		pnFormInput.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnFormInput.setBounds(10, 170, 587, 190);
+		pnFormInput.setLayout(null);
+		pnFormInput.setVisible(false);
+		lstBaiTapTuan34.add(pnFormInput);
+		
+		JLabel lblNewLabel_6 = new JLabel("New label");
+		pnFormInput.add(lblNewLabel_6);
+		
+		JLabel lblNewLabel_7 = new JLabel("Nhap ho va ten khach hang:");
+		lblNewLabel_7.setBounds(10, 11, 229, 21);
+		pnFormInput.add(lblNewLabel_7);
+		
+		JLabel lblNewLabel_7_1 = new JLabel("Nhap nam sinh khach hang:");
+		lblNewLabel_7_1.setBounds(10, 43, 229, 21);
+		pnFormInput.add(lblNewLabel_7_1);
+		
+		JLabel lblNewLabel_7_2 = new JLabel("Nhap CMND:");
+		lblNewLabel_7_2.setBounds(10, 75, 229, 21);
+		pnFormInput.add(lblNewLabel_7_2);
+		
+		JLabel lblNewLabel_7_2_1 = new JLabel("Nhap loai phong (A hoac B hoac C)");
+		lblNewLabel_7_2_1.setBounds(10, 107, 229, 21);
+		pnFormInput.add(lblNewLabel_7_2_1);
+		
+		JLabel lblNewLabel_7_2_1_1 = new JLabel("Nhap so ngay thue phong:");
+		lblNewLabel_7_2_1_1.setBounds(10, 144, 229, 21);
+		pnFormInput.add(lblNewLabel_7_2_1_1);
+		
+		txtHoTenKH = new JTextField();
+		txtHoTenKH.setBounds(251, 11, 86, 20);
+		pnFormInput.add(txtHoTenKH);
+		txtHoTenKH.setColumns(10);
+		
+		txtNamSinhKH = new JTextField();
+		txtNamSinhKH.setColumns(10);
+		txtNamSinhKH.setBounds(251, 43, 86, 20);
+		pnFormInput.add(txtNamSinhKH);
+		
+		txtCMND = new JTextField();
+		txtCMND.setColumns(10);
+		txtCMND.setBounds(251, 75, 86, 20);
+		pnFormInput.add(txtCMND);
+		
+		txtLoaiPhong = new JTextField();
+		txtLoaiPhong.setColumns(10);
+		txtLoaiPhong.setBounds(249, 107, 86, 20);
+		pnFormInput.add(txtLoaiPhong);
+		
+		txtSoNgayThue = new JTextField();
+		txtSoNgayThue.setColumns(10);
+		txtSoNgayThue.setBounds(249, 144, 86, 20);
+		pnFormInput.add(txtSoNgayThue);
+		
+		JButton btnThem = new JButton("Them");
+		btnThem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String hoTen = txtHoTenKH.getText();
+				String loaiPhong = txtLoaiPhong.getText();
+				String namSinh = txtNamSinhKH.getText();
+				String cmnd = txtCMND.getText();
+				String soNgayThue = txtSoNgayThue.getText();
+				
+				int intNamSinh = 0;
+				try {
+					intNamSinh = Integer.parseInt(namSinh);
+				} catch (Exception e2) {
+				}
+				
+				int intSoNgayThue = 0;
+				try {
+					intSoNgayThue = Integer.parseInt(soNgayThue);
+				} catch (Exception e2) {
+				}
+				
+				QlyKhachSan.addKhachThue(loaiPhong, hoTen, intNamSinh, cmnd, intSoNgayThue);
+				
+				txtHoTenKH.setText("");
+				txtLoaiPhong.setText("");
+				txtNamSinhKH.setText("");
+				txtCMND.setText("");
+				txtSoNgayThue.setText("");
+			}
+		});
+		btnThem.setBounds(488, 156, 89, 23);
+		pnFormInput.add(btnThem);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.LIGHT_GRAY);
+		panel.setBounds(10, 11, 587, 102);
+		panel.setLayout(null);
+		lstBaiTapTuan34.add(panel);
+		panel.setBounds(10, 11, 587, 120);
+		
+		JTextArea txtrThemKhach = new JTextArea();
+		txtrThemKhach.setEditable(false);
+		txtrThemKhach.setBackground(Color.LIGHT_GRAY);
+		txtrThemKhach.setText("1: Them khach thue\r\n2: Xoa khach thue bang CMND\r\n3: Tinh tien thue phong bang CMND\r\n4: Hien thi thong tin khach thue\r\n5: Thoat chuong trinh:");
+		txtrThemKhach.setBounds(10, 11, 567, 98);
+		panel.add(txtrThemKhach);
+		
+		JLabel lblNewLabel_4 = new JLabel("Chon chuc nang");
+		lblNewLabel_4.setBounds(10, 142, 99, 20);
+		lstBaiTapTuan34.add(lblNewLabel_4);
+		
+		txtMode = new JTextField();
+		txtMode.setBounds(119, 142, 47, 20);
+		lstBaiTapTuan34.add(txtMode);
+		txtMode.setColumns(10);
+		
+		JButton btnRun = new JButton("Run");
+		btnRun.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mode = txtMode.getText();
+				if (mode.equals("1")) {
+					QlyKhachSan.createMemory();
+					pnFormInput.setVisible(true);
+				}
+			}
+		});
+		btnRun.setBounds(176, 142, 89, 20);
+		lstBaiTapTuan34.add(btnRun);
 	}
 }
