@@ -32,7 +32,12 @@ public class KhachSan {
         return nguoi.getPhong().getGiaPhong() * nguoi.getSoNgayThue();
     }
 
-    public void show() {
-        this.nguoi.forEach(p -> System.out.println(p.toString()));
+    public String show() {
+    	String ketQua = "";
+        for (Nguoi item : this.nguoi) {
+        	ketQua += item.toString() + "\n";
+		}
+        
+        return ketQua;
     }
 }

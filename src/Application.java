@@ -60,6 +60,7 @@ public class Application extends JFrame {
 	private JTextField txtCMND;
 	private JTextField txtLoaiPhong;
 	private JTextField txtSoNgayThue;
+	private JTextField txtCmndDel;
 
 	/**
 	 * Launch the application.
@@ -152,11 +153,11 @@ public class Application extends JFrame {
 		panel.add(btnTuan33);
 		panel.add(btnTuan34);
 
-//		addLayoutTuan29(contentPane);
-//		addLayoutTuan30(contentPane);
-//		addLayoutTuan31(contentPane);
-//		addLayoutTuan32(contentPane);
-//		addLayoutTuan33(contentPane);
+		addLayoutTuan29(contentPane);
+		addLayoutTuan30(contentPane);
+		addLayoutTuan31(contentPane);
+		addLayoutTuan32(contentPane);
+		addLayoutTuan33(contentPane);
 		addLayoutTuan34(contentPane);
 
 		setVisableLayout(null);
@@ -1016,6 +1017,11 @@ public class Application extends JFrame {
 		pnFormInput.setVisible(false);
 		lstBaiTapTuan34.add(pnFormInput);
 		
+		JTextArea txtKetQua = new JTextArea();
+		txtKetQua.setEditable(false);
+		txtKetQua.setBounds(10, 213, 587, 319);
+		lstBaiTapTuan34.add(txtKetQua);
+		
 		JLabel lblNewLabel_6 = new JLabel("New label");
 		pnFormInput.add(lblNewLabel_6);
 		
@@ -1097,6 +1103,40 @@ public class Application extends JFrame {
 		btnThem.setBounds(488, 156, 89, 23);
 		pnFormInput.add(btnThem);
 		
+		JPanel pnDeleteKH = new JPanel();
+		pnDeleteKH.setBounds(10, 170, 587, 32);
+		pnDeleteKH.setLayout(null);
+		pnDeleteKH.setVisible(false);
+		lstBaiTapTuan34.add(pnDeleteKH);
+		
+		JLabel lblNhapCMND = new JLabel("Nhap CMND");
+		lblNhapCMND.setBounds(0, 0, 112, 24);
+		pnDeleteKH.add(lblNhapCMND);
+		
+		txtCmndDel = new JTextField();
+		txtCmndDel.setBounds(99, 2, 99, 20);
+		pnDeleteKH.add(txtCmndDel);
+		txtCmndDel.setColumns(10);
+		
+		JButton btnThucThi = new JButton("Xoa");
+		btnThucThi.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String mode = txtMode.getText();
+				String cmnd = txtCmndDel.getText();
+				if (cmnd.equals("")) return;
+				
+				txtKetQua.setVisible(true);
+				if (mode.equals("2")) {
+					QlyKhachSan.delete(cmnd);
+					txtKetQua.setText("Da xoa " + cmnd);
+				} else if (mode.equals("3")) {
+					txtKetQua.setText(QlyKhachSan.calculator(cmnd));
+				}
+			}
+		});
+		btnThucThi.setBounds(226, 1, 89, 23);
+		pnDeleteKH.add(btnThucThi);
+		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.LIGHT_GRAY);
 		panel.setBounds(10, 11, 587, 102);
@@ -1123,10 +1163,26 @@ public class Application extends JFrame {
 		JButton btnRun = new JButton("Run");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pnFormInput.setVisible(false);
+				pnDeleteKH.setVisible(false);
+				txtKetQua.setVisible(false);
+				txtCmndDel.setText("");
+				
 				String mode = txtMode.getText();
 				if (mode.equals("1")) {
 					QlyKhachSan.createMemory();
 					pnFormInput.setVisible(true);
+				} else if (mode.equals("2")) {
+					pnDeleteKH.setVisible(true);
+					btnThucThi.setText("Xoa");
+				} else if (mode.equals("3")) {
+					pnDeleteKH.setVisible(true);
+					btnThucThi.setText("Tinh Tien");
+				} else if (mode.equals("4")) {
+					txtKetQua.setVisible(true);
+					txtKetQua.setText(QlyKhachSan.showAll());
+				} else if (mode.equals("5")) {
+					QlyKhachSan.createMemory();
 				}
 			}
 		});
