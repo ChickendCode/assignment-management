@@ -38,6 +38,7 @@ public class Application extends JFrame {
 	private JPanel lstBaiTapTuan34;
 	private int mode = 0;
 	private int countCanBo = 1;
+	private int countInput = 0;
 	/**
 	 * 
 	 */
@@ -50,6 +51,7 @@ public class Application extends JFrame {
 	private JTextField txtDiaChi;
 	private JTextField txtSoLuongCB;
 	private JTextField txtNamSinh;
+	private JTextField txtTuKhoa;
 
 	/**
 	 * Launch the application.
@@ -768,9 +770,36 @@ public class Application extends JFrame {
 		pnNhapSoLuongCanBo.setVisible(false);
 		
 		JLabel lblDoneInput = new JLabel("Da nhap xong . . . .");
-		lblDoneInput.setBounds(10, 177, 150, 20);
+		lblDoneInput.setBounds(10, 177, 600, 20);
 		lblDoneInput.setVisible(false);
 		lstBaiTapTuan33.add(lblDoneInput);
+		
+		// Panel search
+		JPanel pnSearch = new JPanel();
+		pnSearch.setBounds(10, 177, 587, 33);
+		pnSearch.setLayout(null);
+		pnSearch.setVisible(false);
+		lstBaiTapTuan33.add(pnSearch);
+		
+		JLabel lblNhapTuKhoa = new JLabel("Nhap tu khoa: ");
+		lblNhapTuKhoa.setBounds(0, 11, 216, 14);
+		pnSearch.add(lblNhapTuKhoa);
+		
+		txtTuKhoa = new JTextField();
+		txtTuKhoa.setBounds(103, 8, 123, 20);
+		pnSearch.add(txtTuKhoa);
+		txtTuKhoa.setColumns(10);
+		
+		JButton btnTimKiem = new JButton("Tim Kiem");
+		btnTimKiem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				QLyCanBo.timKiem(txtTuKhoa.getText());
+			}
+		});
+		btnTimKiem.setBounds(251, 7, 89, 23);
+		pnSearch.add(btnTimKiem);
+		// Panel search
+		
 		lstBaiTapTuan33.add(pnNhapSoLuongCanBo);
 
 		JLabel lblNewLabel_5 = new JLabel("Ban muon nhap bao nhieu can bo?");
@@ -839,7 +868,7 @@ public class Application extends JFrame {
 		txt.setBounds(10, 11, 575, 137);
 		lstBaiTapTuan33.add(txt);
 
-		JLabel lblNewLabel = new JLabel("Chọn chức năng:");
+		JLabel lblNewLabel = new JLabel("Chon chuc nang");
 		lblNewLabel.setBounds(10, 152, 112, 14);
 		lstBaiTapTuan33.add(lblNewLabel);
 
@@ -861,6 +890,13 @@ public class Application extends JFrame {
 				if (mode.equals("1")) {
 					pnNhapSoLuongCanBo.setVisible(true);
 				} else if (mode.equals("2")) {
+					if (!QLyCanBo.checkHasData()) {
+						lblDoneInput.setText("Canh bao: Ban chua nhap danh sach!!");
+						lblDoneInput.setVisible(true);
+						return;
+					}
+					
+					pnSearch.setVisible(true);
 
 				} else if (mode.equals("3")) {
 
@@ -885,14 +921,6 @@ public class Application extends JFrame {
 				if (intSoLuongNhap == 0) {
 					return;
 				}
-				
-				if (countCanBo == intSoLuongNhap) {
-					pnNhapSoLuongCanBo.setVisible(false);
-					pnFormInput.setVisible(false);
-					lblDoneInput.setVisible(true);
-					txtSoLuongCB.setText("");
-					return;
-				}
 					
 
 				String loaiCanBo = txtLoaiCanBo.getText();
@@ -907,9 +935,20 @@ public class Application extends JFrame {
 					intNamSinh = 0;
 				}
 
-				QLyCanBo.nhapCanBo(countCanBo, intSoLuongNhap, loaiCanBo, hoTen, gioiTinh, diaChi, intNamSinh);
+				QLyCanBo.nhapCanBo(countInput, intSoLuongNhap, loaiCanBo, hoTen, gioiTinh, diaChi, intNamSinh);
+				
+				if (countInput == (intSoLuongNhap - 1) ) {
+					pnNhapSoLuongCanBo.setVisible(false);
+					pnFormInput.setVisible(false);
+					lblDoneInput.setVisible(true);
+					lblDoneInput.setText("Da nhap xong . . . .");
+					txtSoLuongCB.setText("");
+					textMode.setText("");
+					return;
+				}
 
 				countCanBo += 1;
+				countInput += 1;
 				lblCanBo.setText(txtCanBo.replace("{0}", String.valueOf(countCanBo)));
 				txtLoaiCanBo.setText("");
 				txtHoTen.setText("");

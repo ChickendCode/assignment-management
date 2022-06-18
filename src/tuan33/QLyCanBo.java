@@ -16,6 +16,27 @@ public class QLyCanBo {
 			dsCB[i] = new NhanVien(hoTen, gioiTinh, diaChi, namSinh);
 		}
 	}
+	
+	public static boolean checkHasData() {
+		if (dsCB == null || dsCB.length == 0) {
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public static CanBo[] timKiem(String tuKhoa) {
+		String sKey = tuKhoa.trim();
+		StringTokenizer st2 = new StringTokenizer(sKey, " ", false);
+		System.out.println("Ket qua tim kiem: ");
+		for (int i = 0; i < dsCB.length; i++)
+			if (dsCB[i].TimKiem(st2.nextToken()) || (st2.hasMoreTokens())) {
+				dsCB[i].OutputData();
+			}
+		System.out.println("Tim xong!!");
+		
+		return null;
+	}
 
 	public static void main(String[] args) {
 		CanBo[] dsCB = null;
