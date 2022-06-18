@@ -913,6 +913,13 @@ public class Application extends JFrame {
 					pnSearch.setVisible(true);
 
 				} else if (txtMode.equals("3")) {
+					if (!QLyCanBo.checkHasData()) {
+						lblDoneInput.setText("Canh bao: Ban chua nhap danh sach!!");
+						lblDoneInput.setVisible(true);
+						return;
+					}
+					
+					areaKetQuaTimKiem.setText(QLyCanBo.xuatDanhSach());
 
 				} else if (txtMode.equals("4")) {
 

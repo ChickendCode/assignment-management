@@ -42,4 +42,13 @@ public class QLyCanBo {
 		ketQua += "Tim xong!!";
 		return ketQua;
 	}
+	
+	public static String xuatDanhSach() {
+		String ketQua = "Danh sach can bo la: \n";
+        for (int i = 0; i < dsCB.length; i++) {
+        	ketQua += dsCB[i].OutputData();
+        }
+        
+        return ketQua;
+	}
 }
