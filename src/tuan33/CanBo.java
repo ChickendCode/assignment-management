@@ -22,12 +22,14 @@ public class CanBo
         System.out.print("Nhap Nam Sinh    :");this.iNamSinh=NhapDL.nhapInt();
     }
     // Hien thi thong tin can bo
-    public void OutputData()
+    public String OutputData()
     {
-        System.out.println("Ho ten      :" +this.sHoTen);
-        System.out.println("Gioi Tinh   :" +this.sGioiTinh);
-        System.out.println("Dia Chi     :" +this.sDiaChi);
-        System.out.println("Nam sinh    :" +this.iNamSinh);
+    	String ketQua = "Ho ten      :" + this.sHoTen + "\n";
+    	 ketQua += "Gioi Tinh   :" +this.sGioiTinh + "\n";
+    	 ketQua += "Dia Chi     :" +this.sDiaChi + "\n";
+    	 ketQua += "Nam sinh    :" +this.iNamSinh + "\n";
+    	 
+    	 return ketQua;
     }
     public boolean TimKiem(String sKeyWord)
     {

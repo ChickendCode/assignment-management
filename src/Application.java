@@ -774,6 +774,10 @@ public class Application extends JFrame {
 		lblDoneInput.setVisible(false);
 		lstBaiTapTuan33.add(lblDoneInput);
 		
+		JTextArea areaKetQuaTimKiem = new JTextArea();
+		areaKetQuaTimKiem.setEditable(false);
+		areaKetQuaTimKiem.setBounds(10, 211, 587, 280);
+		
 		// Panel search
 		JPanel pnSearch = new JPanel();
 		pnSearch.setBounds(10, 177, 587, 33);
@@ -793,7 +797,7 @@ public class Application extends JFrame {
 		JButton btnTimKiem = new JButton("Tim Kiem");
 		btnTimKiem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				QLyCanBo.timKiem(txtTuKhoa.getText());
+				areaKetQuaTimKiem.setText(QLyCanBo.timKiem(txtTuKhoa.getText()));
 			}
 		});
 		btnTimKiem.setBounds(251, 7, 89, 23);
@@ -815,6 +819,16 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				lblCanBo.setText(txtCanBo.replace("{0}", String.valueOf(countCanBo)));
 				pnFormInput.setVisible(true);
+				
+				int intSoLuongNhap = 0;
+				try {
+					intSoLuongNhap = Integer.parseInt(txtSoLuongCB.getText());
+				} catch (Exception e2) {
+					intSoLuongNhap = 0;
+				}
+				
+				QLyCanBo.createMemory(intSoLuongNhap);
+				pnNhapSoLuongCanBo.setVisible(true); 
 			}
 		});
 		btnNhapForm.setBounds(268, 7, 89, 23);
@@ -882,14 +896,14 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				pnNhapSoLuongCanBo.setVisible(false);
 				lblDoneInput.setVisible(false);
-				String mode = textMode.getText();
-				if (mode.equals("")) {
+				String txtMode = textMode.getText();
+				if (txtMode.equals("")) {
 					return;
 				}
 
-				if (mode.equals("1")) {
-					pnNhapSoLuongCanBo.setVisible(true);
-				} else if (mode.equals("2")) {
+				if (txtMode.equals("1")) {
+					pnNhapSoLuongCanBo.setVisible(true); 
+				} else if (txtMode.equals("2")) {
 					if (!QLyCanBo.checkHasData()) {
 						lblDoneInput.setText("Canh bao: Ban chua nhap danh sach!!");
 						lblDoneInput.setVisible(true);
@@ -898,9 +912,9 @@ public class Application extends JFrame {
 					
 					pnSearch.setVisible(true);
 
-				} else if (mode.equals("3")) {
+				} else if (txtMode.equals("3")) {
 
-				} else if (mode.equals("4")) {
+				} else if (txtMode.equals("4")) {
 
 				}
 			}
@@ -935,7 +949,7 @@ public class Application extends JFrame {
 					intNamSinh = 0;
 				}
 
-				QLyCanBo.nhapCanBo(countInput, intSoLuongNhap, loaiCanBo, hoTen, gioiTinh, diaChi, intNamSinh);
+				QLyCanBo.nhapCanBo(countInput, loaiCanBo, hoTen, gioiTinh, diaChi, intNamSinh);
 				
 				if (countInput == (intSoLuongNhap - 1) ) {
 					pnNhapSoLuongCanBo.setVisible(false);
@@ -969,6 +983,7 @@ public class Application extends JFrame {
 		txtNamSinh.setBounds(177, 154, 110, 20);
 		pnFormInput.add(txtNamSinh);
 		lstBaiTapTuan33.add(btnRun);
+		lstBaiTapTuan33.add(areaKetQuaTimKiem);
 	}
 
 	private void addLayoutTuan34(JPanel contentPane) {
