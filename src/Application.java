@@ -621,6 +621,7 @@ public class Application extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				mode = 1;
 				lbl_BT1.setText("Nhập chuỗi");
+				txtN_BT1.setText("");
 				panelBai1.setVisible(true);
 				txtKetQua.setText("");
 			}
@@ -642,6 +643,7 @@ public class Application extends JFrame {
 		btnBai3_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lbl_BT1.setText("Nhập họ tên");
+				txtN_BT1.setText("");
 				panelBai1.setVisible(true);
 				txtKetQua.setText("");
 				mode = 3;
@@ -654,6 +656,7 @@ public class Application extends JFrame {
 		btnBai4_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lbl_BT1.setText("Nhập họ tên");
+				txtN_BT1.setText("");
 				panelBai1.setVisible(true);
 				txtKetQua.setText("");
 				mode = 4;
@@ -666,6 +669,7 @@ public class Application extends JFrame {
 		btnBai5_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lbl_BT1.setText("Nhập xau 01");
+				txtN_BT1.setText("");
 				panelBai1.setVisible(true);
 				txtKetQua.setText("");
 				mode = 5;
@@ -678,6 +682,7 @@ public class Application extends JFrame {
 		btnBai6_T29.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				lbl_BT1.setText("Nhập xâu");
+				txtN_BT1.setText("");
 				panelBai1.setVisible(true);
 				txtKetQua.setText("");
 				mode = 6;
