@@ -45,6 +45,7 @@ public class Application extends JFrame {
 	private JTextField txtHoTen;
 	private JTextField txtGioiTinh;
 	private JTextField txtNamSinh;
+	private JTextField txtSoLuongCB;
 
 	/**
 	 * Launch the application.
@@ -749,55 +750,74 @@ public class Application extends JFrame {
 		contentPane.add(lstBaiTapTuan33);
 		lstPanel.add(lstBaiTapTuan33);
 		
-		JPanel panel = new JPanel();
-		panel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		panel.setBounds(10, 177, 587, 177);
-		panel.setLayout(null);
-		lstBaiTapTuan33.add(panel);
+		JPanel pnFormInput = new JPanel();
+		pnFormInput.setBorder(new LineBorder(new Color(0, 0, 0)));
+		pnFormInput.setBounds(10, 217, 587, 177);
+		pnFormInput.setLayout(null);
+		pnFormInput.setVisible(false);
+		
+		JPanel pnNhapSoLuongCanBo = new JPanel();
+		pnNhapSoLuongCanBo.setBounds(10, 177, 587, 33);
+		pnNhapSoLuongCanBo.setLayout(null);
+		lstBaiTapTuan33.add(pnNhapSoLuongCanBo);
+		
+		JLabel lblNewLabel_5 = new JLabel("Ban muon nhap bao nhieu can bo?");
+		lblNewLabel_5.setBounds(0, 11, 216, 14);
+		pnNhapSoLuongCanBo.add(lblNewLabel_5);
+		
+		JButton btnNhapForm = new JButton("Nhập");
+		btnNhapForm.setBounds(268, 7, 89, 23);
+		pnNhapSoLuongCanBo.add(btnNhapForm);
+		
+		txtSoLuongCB = new JTextField();
+		txtSoLuongCB.setBounds(213, 8, 45, 20);
+		pnNhapSoLuongCanBo.add(txtSoLuongCB);
+		txtSoLuongCB.setColumns(10);
+		lstBaiTapTuan33.add(pnFormInput);
 		
 		JLabel lblNewLabel_1 = new JLabel("Nhap loai can bo CN,KS,NV:");
 		lblNewLabel_1.setBounds(10, 38, 156, 14);
-		panel.add(lblNewLabel_1);
+		pnFormInput.add(lblNewLabel_1);
 		
 		txtLoaiCanBo = new JTextField();
 		txtLoaiCanBo.setBounds(177, 35, 40, 20);
-		panel.add(txtLoaiCanBo);
+		pnFormInput.add(txtLoaiCanBo);
 		txtLoaiCanBo.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Nhap Ho Ten");
 		lblNewLabel_2.setBounds(10, 66, 131, 14);
-		panel.add(lblNewLabel_2);
+		pnFormInput.add(lblNewLabel_2);
 		
 		txtHoTen = new JTextField();
 		txtHoTen.setBounds(177, 63, 110, 20);
-		panel.add(txtHoTen);
+		pnFormInput.add(txtHoTen);
 		txtHoTen.setColumns(10);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nhap Gioi Tinh");
 		lblNewLabel_3.setBounds(10, 99, 131, 14);
-		panel.add(lblNewLabel_3);
+		pnFormInput.add(lblNewLabel_3);
 		
 		txtGioiTinh = new JTextField();
 		txtGioiTinh.setBounds(177, 94, 110, 20);
-		panel.add(txtGioiTinh);
+		pnFormInput.add(txtGioiTinh);
 		txtGioiTinh.setColumns(10);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Nhap Nam Sinh");
 		lblNewLabel_3_1.setBounds(10, 131, 131, 14);
-		panel.add(lblNewLabel_3_1);
+		pnFormInput.add(lblNewLabel_3_1);
 		
 		txtNamSinh = new JTextField();
 		txtNamSinh.setColumns(10);
 		txtNamSinh.setBounds(177, 126, 110, 20);
-		panel.add(txtNamSinh);
+		pnFormInput.add(txtNamSinh);
 		
 		JButton btnNewButton = new JButton("Xong");
 		btnNewButton.setBounds(488, 143, 89, 23);
-		panel.add(btnNewButton);
+		pnFormInput.add(btnNewButton);
 		
 		JLabel lblNewLabel_4 = new JLabel("Nhap vao thong tin cho can bo thu {0}");
 		lblNewLabel_4.setBounds(10, 11, 277, 14);
-		panel.add(lblNewLabel_4);
+		pnFormInput.add(lblNewLabel_4);
 		
 		JTextArea txt = new JTextArea("||===============================||\r\n||                Chuong Trinh QLy Can Bo         ||\r\n||           1. Nhap Thong Tin moi n CBo        ||\r\n||           2. Tim kiem theo ho ten                   ||\r\n||           3. Hien thi thong tin ve dsCB          ||\r\n||           4. Thoat khoi chuong trinh              ||\r\n||===============================||");
 		txt.setEditable(false);
@@ -816,7 +836,21 @@ public class Application extends JFrame {
 		JButton btnRun = new JButton("Run");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				pnFormInput.setVisible(false);
+				String mode = textMode.getText();
+				if (mode.equals("")) {
+					return;
+				}
 				
+				if (mode.equals("1")) {
+					pnFormInput.setVisible(true);
+				} else if (mode.equals("2")) {
+					
+				} else if (mode.equals("3")) {
+					
+				} else if (mode.equals("4")) {
+					
+				}
 			}
 		});
 		btnRun.setBounds(198, 148, 89, 23);
