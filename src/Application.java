@@ -35,6 +35,7 @@ public class Application extends JFrame {
 	private JPanel lstBaiTapTuan33;
 	private JPanel lstBaiTapTuan34;
 	private int mode = 0;
+	private int countCanBo = 1;
 	/**
 	 * 
 	 */
@@ -744,6 +745,8 @@ public class Application extends JFrame {
 	}
 
 	private void addLayoutTuan33(JPanel contentPane) {
+		String txtCanBo = "Nhap vao thong tin cho can bo thu {0}";
+		
 		lstBaiTapTuan33 = new JPanel();
 		lstBaiTapTuan33.setBounds(185, 11, 607, 639);
 		lstBaiTapTuan33.setLayout(null);
@@ -759,13 +762,24 @@ public class Application extends JFrame {
 		JPanel pnNhapSoLuongCanBo = new JPanel();
 		pnNhapSoLuongCanBo.setBounds(10, 177, 587, 33);
 		pnNhapSoLuongCanBo.setLayout(null);
+		pnNhapSoLuongCanBo.setVisible(false);
 		lstBaiTapTuan33.add(pnNhapSoLuongCanBo);
 		
 		JLabel lblNewLabel_5 = new JLabel("Ban muon nhap bao nhieu can bo?");
 		lblNewLabel_5.setBounds(0, 11, 216, 14);
 		pnNhapSoLuongCanBo.add(lblNewLabel_5);
 		
+		JLabel lblCanBo = new JLabel("Nhap vao thong tin cho can bo thu {0}");
+		lblCanBo.setBounds(10, 11, 277, 14);
+		pnFormInput.add(lblCanBo);
+		
 		JButton btnNhapForm = new JButton("Nhập");
+		btnNhapForm.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblCanBo.setText(txtCanBo.replace("{0}", String.valueOf(countCanBo)));
+				pnFormInput.setVisible(true);
+			}
+		});
 		btnNhapForm.setBounds(268, 7, 89, 23);
 		pnNhapSoLuongCanBo.add(btnNhapForm);
 		
@@ -811,14 +825,6 @@ public class Application extends JFrame {
 		txtNamSinh.setBounds(177, 126, 110, 20);
 		pnFormInput.add(txtNamSinh);
 		
-		JButton btnNewButton = new JButton("Xong");
-		btnNewButton.setBounds(488, 143, 89, 23);
-		pnFormInput.add(btnNewButton);
-		
-		JLabel lblNewLabel_4 = new JLabel("Nhap vao thong tin cho can bo thu {0}");
-		lblNewLabel_4.setBounds(10, 11, 277, 14);
-		pnFormInput.add(lblNewLabel_4);
-		
 		JTextArea txt = new JTextArea("||===============================||\r\n||                Chuong Trinh QLy Can Bo         ||\r\n||           1. Nhap Thong Tin moi n CBo        ||\r\n||           2. Tim kiem theo ho ten                   ||\r\n||           3. Hien thi thong tin ve dsCB          ||\r\n||           4. Thoat khoi chuong trinh              ||\r\n||===============================||");
 		txt.setEditable(false);
 		txt.setBounds(10, 11, 575, 137);
@@ -836,14 +842,14 @@ public class Application extends JFrame {
 		JButton btnRun = new JButton("Run");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				pnFormInput.setVisible(false);
+				pnNhapSoLuongCanBo.setVisible(false);
 				String mode = textMode.getText();
 				if (mode.equals("")) {
 					return;
 				}
 				
 				if (mode.equals("1")) {
-					pnFormInput.setVisible(true);
+					pnNhapSoLuongCanBo.setVisible(true);
 				} else if (mode.equals("2")) {
 					
 				} else if (mode.equals("3")) {
@@ -854,6 +860,20 @@ public class Application extends JFrame {
 			}
 		});
 		btnRun.setBounds(198, 148, 89, 23);
+
+		JButton btnNewButton = new JButton("Xong");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				countCanBo += 1;
+				lblCanBo.setText(txtCanBo.replace("{0}", String.valueOf(countCanBo)));
+				txtLoaiCanBo.setText("");
+				txtHoTen.setText("");
+				txtGioiTinh.setText("");
+				txtNamSinh.setText("");
+			}
+		});
+		btnNewButton.setBounds(488, 143, 89, 23);
+		pnFormInput.add(btnNewButton);
 		lstBaiTapTuan33.add(btnRun);
 	}
 
