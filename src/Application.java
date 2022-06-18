@@ -24,6 +24,8 @@ import tuan29.Bai4;
 import tuan29.Bai5;
 import tuan29.Bai6;
 import tuan29.Bai7;
+import tuan33.QLyCanBo;
+
 import javax.swing.border.LineBorder;
 
 public class Application extends JFrame {
@@ -45,8 +47,9 @@ public class Application extends JFrame {
 	private JTextField txtLoaiCanBo;
 	private JTextField txtHoTen;
 	private JTextField txtGioiTinh;
-	private JTextField txtNamSinh;
+	private JTextField txtDiaChi;
 	private JTextField txtSoLuongCB;
+	private JTextField txtNamSinh;
 
 	/**
 	 * Launch the application.
@@ -401,11 +404,11 @@ public class Application extends JFrame {
 	private void addLayoutTuan31(JPanel contentPane) {
 		List<JTextField> txtArr = new ArrayList<JTextField>();
 		JButton btnKetQua = new JButton("Kết quả");
-		
+
 		lstBaiTapTuan31 = new JPanel();
 		lstBaiTapTuan31.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan31);
-		
+
 		JPanel panelElementArray = new JPanel();
 		panelElementArray.setBounds(0, 110, 258, 37);
 		panelElementArray.setLayout(null);
@@ -419,7 +422,7 @@ public class Application extends JFrame {
 				if (n.equals("")) {
 					return;
 				}
-				
+
 				panelElementArray.removeAll();
 				txtArr.clear();
 
@@ -428,26 +431,26 @@ public class Application extends JFrame {
 					JPanel panel = new JPanel();
 					panel.setBounds(i * 30, 0, 80, 37);
 					panel.setLayout(null);
-					
-					JLabel lbl = new JLabel("a["+ i +" - "+ (nInt - 1) +"]");
+
+					JLabel lbl = new JLabel("a[" + i + " - " + (nInt - 1) + "]");
 					lbl.setBounds(0, 0, 50, 20);
 					panel.add(lbl);
-					
+
 					JTextField txt = new JTextField();
 					txt.setText(" ");
 					txt.setBounds(50, 0, 20, 20);
 					panel.add(txt);
-					
+
 					txtArr.add(txt);
-					
+
 					panelElementArray.add(panel);
 					panelElementArray.updateUI();
 				}
-				
+
 				btnKetQua.setVisible(true);
 			}
 		});
-		
+
 		JTextArea txtKetQua = new JTextArea();
 		txtKetQua.setLocation(0, 170);
 		txtKetQua.setSize(607, 419);
@@ -516,10 +519,10 @@ public class Application extends JFrame {
 
 		lstBaiTapTuan31.setLayout(null);
 		lstBaiTapTuan31.add(panelElementArray);
-		
+
 		btnKetQua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				int[] arr = new int[txtArr.size()];
 				for (int i = 0; i < txtArr.size(); i++) {
 					String n = txtArr.get(i).getText().trim();
@@ -530,7 +533,7 @@ public class Application extends JFrame {
 					int nInt = Integer.parseInt(n);
 					arr[i] = nInt;
 				}
-				
+
 				String ketQua = null;
 				if (mode == 1) {
 					ketQua = tuan31.Bai1.getKetQua(arr);
@@ -541,14 +544,14 @@ public class Application extends JFrame {
 				} else if (mode == 6) {
 					ketQua = tuan31.Bai6.getKetQua(arr, txtArr.size());
 				}
-				
+
 				txtKetQua.setText(ketQua);
 			}
 		});
 		btnKetQua.setBounds(0, 140, 89, 23);
 		btnKetQua.setVisible(false);
 		lstBaiTapTuan31.add(btnKetQua);
-		
+
 		lstBaiTapTuan31.add(btnBai1_T29);
 		lstBaiTapTuan31.add(txtKetQua);
 		lstBaiTapTuan31.add(btnBai2_T29);
@@ -569,8 +572,9 @@ public class Application extends JFrame {
 
 		lstPanel.add(lstBaiTapTuan31);
 	}
-	
-	private void controlVisableTuan31(JPanel panelBai1, int mode, JTextArea txt, JPanel panelElementArray, JTextField txtN_BT1, JButton btnKetQua) {
+
+	private void controlVisableTuan31(JPanel panelBai1, int mode, JTextArea txt, JPanel panelElementArray,
+			JTextField txtN_BT1, JButton btnKetQua) {
 		panelBai1.setVisible(true);
 		this.mode = mode;
 		txt.setText("");
@@ -578,16 +582,16 @@ public class Application extends JFrame {
 		txtN_BT1.setText("");
 		btnKetQua.setVisible(false);
 	}
-	
+
 	private void addLayoutTuan32(JPanel contentPane) {
 		lstBaiTapTuan32 = new JPanel();
 		lstBaiTapTuan32.setBounds(185, 11, 607, 639);
 		contentPane.add(lstBaiTapTuan32);
-		
+
 		JLabel lbl_BT1 = new JLabel("");
 		lbl_BT1.setLocation(0, 11);
 		lbl_BT1.setSize(70, 18);
-		
+
 		JTextField txtN_BT1 = new JTextField();
 		txtN_BT1.setBounds(70, 10, 86, 20);
 
@@ -714,7 +718,6 @@ public class Application extends JFrame {
 		lstBaiTapTuan32.add(panelBai1);
 		panelBai1.add(lbl_BT1);
 
-		
 		panelBai1.add(txtN_BT1);
 		txtN_BT1.setColumns(10);
 
@@ -746,33 +749,38 @@ public class Application extends JFrame {
 
 	private void addLayoutTuan33(JPanel contentPane) {
 		String txtCanBo = "Nhap vao thong tin cho can bo thu {0}";
-		
+
 		lstBaiTapTuan33 = new JPanel();
 		lstBaiTapTuan33.setBounds(185, 11, 607, 639);
 		lstBaiTapTuan33.setLayout(null);
 		contentPane.add(lstBaiTapTuan33);
 		lstPanel.add(lstBaiTapTuan33);
-		
+
 		JPanel pnFormInput = new JPanel();
 		pnFormInput.setBorder(new LineBorder(new Color(0, 0, 0)));
-		pnFormInput.setBounds(10, 217, 587, 177);
+		pnFormInput.setBounds(10, 217, 587, 211);
 		pnFormInput.setLayout(null);
 		pnFormInput.setVisible(false);
-		
+
 		JPanel pnNhapSoLuongCanBo = new JPanel();
 		pnNhapSoLuongCanBo.setBounds(10, 177, 587, 33);
 		pnNhapSoLuongCanBo.setLayout(null);
 		pnNhapSoLuongCanBo.setVisible(false);
-		lstBaiTapTuan33.add(pnNhapSoLuongCanBo);
 		
+		JLabel lblDoneInput = new JLabel("Da nhap xong . . . .");
+		lblDoneInput.setBounds(10, 177, 150, 20);
+		lblDoneInput.setVisible(false);
+		lstBaiTapTuan33.add(lblDoneInput);
+		lstBaiTapTuan33.add(pnNhapSoLuongCanBo);
+
 		JLabel lblNewLabel_5 = new JLabel("Ban muon nhap bao nhieu can bo?");
 		lblNewLabel_5.setBounds(0, 11, 216, 14);
 		pnNhapSoLuongCanBo.add(lblNewLabel_5);
-		
+
 		JLabel lblCanBo = new JLabel("Nhap vao thong tin cho can bo thu {0}");
 		lblCanBo.setBounds(10, 11, 277, 14);
 		pnFormInput.add(lblCanBo);
-		
+
 		JButton btnNhapForm = new JButton("Nhập");
 		btnNhapForm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -782,80 +790,82 @@ public class Application extends JFrame {
 		});
 		btnNhapForm.setBounds(268, 7, 89, 23);
 		pnNhapSoLuongCanBo.add(btnNhapForm);
-		
+
 		txtSoLuongCB = new JTextField();
 		txtSoLuongCB.setBounds(213, 8, 45, 20);
 		pnNhapSoLuongCanBo.add(txtSoLuongCB);
 		txtSoLuongCB.setColumns(10);
 		lstBaiTapTuan33.add(pnFormInput);
-		
+
 		JLabel lblNewLabel_1 = new JLabel("Nhap loai can bo CN,KS,NV:");
 		lblNewLabel_1.setBounds(10, 38, 156, 14);
 		pnFormInput.add(lblNewLabel_1);
-		
+
 		txtLoaiCanBo = new JTextField();
 		txtLoaiCanBo.setBounds(177, 35, 40, 20);
 		pnFormInput.add(txtLoaiCanBo);
 		txtLoaiCanBo.setColumns(10);
-		
+
 		JLabel lblNewLabel_2 = new JLabel("Nhap Ho Ten");
 		lblNewLabel_2.setBounds(10, 66, 131, 14);
 		pnFormInput.add(lblNewLabel_2);
-		
+
 		txtHoTen = new JTextField();
 		txtHoTen.setBounds(177, 63, 110, 20);
 		pnFormInput.add(txtHoTen);
 		txtHoTen.setColumns(10);
-		
+
 		JLabel lblNewLabel_3 = new JLabel("Nhap Gioi Tinh");
 		lblNewLabel_3.setBounds(10, 99, 131, 14);
 		pnFormInput.add(lblNewLabel_3);
-		
+
 		txtGioiTinh = new JTextField();
 		txtGioiTinh.setBounds(177, 94, 110, 20);
 		pnFormInput.add(txtGioiTinh);
 		txtGioiTinh.setColumns(10);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("Nhap Nam Sinh");
+
+		JLabel lblNewLabel_3_1 = new JLabel("Nhap Dia Chi");
 		lblNewLabel_3_1.setBounds(10, 131, 131, 14);
 		pnFormInput.add(lblNewLabel_3_1);
-		
-		txtNamSinh = new JTextField();
-		txtNamSinh.setColumns(10);
-		txtNamSinh.setBounds(177, 126, 110, 20);
-		pnFormInput.add(txtNamSinh);
-		
-		JTextArea txt = new JTextArea("||===============================||\r\n||                Chuong Trinh QLy Can Bo         ||\r\n||           1. Nhap Thong Tin moi n CBo        ||\r\n||           2. Tim kiem theo ho ten                   ||\r\n||           3. Hien thi thong tin ve dsCB          ||\r\n||           4. Thoat khoi chuong trinh              ||\r\n||===============================||");
+
+		txtDiaChi = new JTextField();
+		txtDiaChi.setColumns(10);
+		txtDiaChi.setBounds(177, 126, 110, 20);
+		pnFormInput.add(txtDiaChi);
+
+		JTextArea txt = new JTextArea(
+				"||===============================||\r\n||                Chuong Trinh QLy Can Bo         ||\r\n||           1. Nhap Thong Tin moi n CBo        ||\r\n||           2. Tim kiem theo ho ten                   ||\r\n||           3. Hien thi thong tin ve dsCB          ||\r\n||           4. Thoat khoi chuong trinh              ||\r\n||===============================||");
 		txt.setEditable(false);
 		txt.setBounds(10, 11, 575, 137);
 		lstBaiTapTuan33.add(txt);
-		
+
 		JLabel lblNewLabel = new JLabel("Chọn chức năng:");
 		lblNewLabel.setBounds(10, 152, 112, 14);
 		lstBaiTapTuan33.add(lblNewLabel);
-		
+
 		textMode = new JTextField();
 		textMode.setBounds(132, 149, 48, 20);
 		lstBaiTapTuan33.add(textMode);
 		textMode.setColumns(10);
-		
+
 		JButton btnRun = new JButton("Run");
 		btnRun.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pnNhapSoLuongCanBo.setVisible(false);
+				lblDoneInput.setVisible(false);
 				String mode = textMode.getText();
 				if (mode.equals("")) {
 					return;
 				}
-				
+
 				if (mode.equals("1")) {
 					pnNhapSoLuongCanBo.setVisible(true);
 				} else if (mode.equals("2")) {
-					
+
 				} else if (mode.equals("3")) {
-					
+
 				} else if (mode.equals("4")) {
-					
+
 				}
 			}
 		});
@@ -864,16 +874,61 @@ public class Application extends JFrame {
 		JButton btnNewButton = new JButton("Xong");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String soLuongNhap = txtSoLuongCB.getText();
+				int intSoLuongNhap = 0;
+				try {
+					intSoLuongNhap = Integer.parseInt(soLuongNhap);
+				} catch (Exception e2) {
+					intSoLuongNhap = 0;
+				}
+
+				if (intSoLuongNhap == 0) {
+					return;
+				}
+				
+				if (countCanBo == intSoLuongNhap) {
+					pnNhapSoLuongCanBo.setVisible(false);
+					pnFormInput.setVisible(false);
+					lblDoneInput.setVisible(true);
+					txtSoLuongCB.setText("");
+					return;
+				}
+					
+
+				String loaiCanBo = txtLoaiCanBo.getText();
+				String hoTen = txtHoTen.getText();
+				String gioiTinh = txtGioiTinh.getText();
+				String diaChi = txtDiaChi.getText();
+				String namSinh = txtNamSinh.getText();
+				int intNamSinh = 0;
+				try {
+					intNamSinh = Integer.parseInt(namSinh);
+				} catch (Exception e2) {
+					intNamSinh = 0;
+				}
+
+				QLyCanBo.nhapCanBo(countCanBo, intSoLuongNhap, loaiCanBo, hoTen, gioiTinh, diaChi, intNamSinh);
+
 				countCanBo += 1;
 				lblCanBo.setText(txtCanBo.replace("{0}", String.valueOf(countCanBo)));
 				txtLoaiCanBo.setText("");
 				txtHoTen.setText("");
 				txtGioiTinh.setText("");
 				txtNamSinh.setText("");
+				txtDiaChi.setText("");
 			}
 		});
-		btnNewButton.setBounds(488, 143, 89, 23);
+		btnNewButton.setBounds(488, 177, 89, 23);
 		pnFormInput.add(btnNewButton);
+
+		JLabel lblNewLabel_3_1_1 = new JLabel("Nhap Nam Sinh");
+		lblNewLabel_3_1_1.setBounds(10, 159, 131, 14);
+		pnFormInput.add(lblNewLabel_3_1_1);
+
+		txtNamSinh = new JTextField();
+		txtNamSinh.setColumns(10);
+		txtNamSinh.setBounds(177, 154, 110, 20);
+		pnFormInput.add(txtNamSinh);
 		lstBaiTapTuan33.add(btnRun);
 	}
 
