@@ -1,7 +1,6 @@
 package tuan34;
 
 import java.util.Objects;
-import java.util.Scanner;
 
 public class QlyKhachSan {
 	private static KhachSan khachsan = null;
